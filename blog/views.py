@@ -1,5 +1,8 @@
 from django.shortcuts import render
-
+from .models import Blog_News
 # Create your views here.
-def view_blog(request):
-    return render(request,'list_news.html')
+def view_news(request):
+    posts=Blog_News.objects.all()
+    
+    return render(request,'list_news.html',
+                  {"posts":posts})

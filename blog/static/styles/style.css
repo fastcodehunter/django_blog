@@ -12,9 +12,9 @@ body {
 
 body {
     margin: 0;
-    background: linear-gradient(-100deg, #E23E57, #88304E, #522546, #311D3F);
+    background: linear-gradient(-100deg, #ff3964, #88304E, #522546, #2b0f3f);
     background-size: 400% 400%;
-    animation: gradient 5s ease infinite;
+    animation: gradient 15s ease infinite;
 }
 
 @keyframes gradient {
@@ -112,4 +112,14 @@ main{
     padding-top: 10px;
     overflow: hidden;
     word-wrap: break-word;
+}
+.short__blog{
+    font-size: 24px;
+    color:#E23E57;
+}
+.title_no_news {
+    font-size: 36px;
+    color: #E23E57;
+    text-align: center;
+    padding: 10px;
 }

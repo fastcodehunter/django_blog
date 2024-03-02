@@ -12,4 +12,7 @@ class Blog_News(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     blog = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
-    preview = models.ImageField(upload_to='blog_previews/')  # поле для загрузки картинки
+    preview = models.ImageField(upload_to='blog_previews/')
+    
+    class Meta:
+        ordering = ['-publish']
