@@ -4,5 +4,5 @@ from .models import Blog_News
 def view_news(request):
     posts=Blog_News.objects.all()
     
-    return render(request,'list_news.html',
+    return render(request,'list_news/list_news.html',
                   {"posts":posts})

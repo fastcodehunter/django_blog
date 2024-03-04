@@ -16,3 +16,11 @@ class Blog_News(models.Model):
     
     class Meta:
         ordering = ['-publish']
+
+
+
+class Subsection(models.Model):
+    blog_news = models.ForeignKey(Blog_News, on_delete=models.CASCADE, related_name='subsections')
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    image = models.ImageField(upload_to='subsection_images/', null=True, blank=True)
