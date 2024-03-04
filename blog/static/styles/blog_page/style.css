@@ -93,13 +93,14 @@ main{
 .title{
     font-size: 20px;
     padding-bottom: 10px;
-    color: #88304E
+    color:#E23E57
 }
 .container__img{
     display: flex;
     align-items: center;
     justify-content: center;
     max-width: 900px;
+    font-size: 50px;
 }
 .filter__img{
     width: 100%;
@@ -112,4 +113,8 @@ main{
     padding-block: 10px;
     overflow: hidden;
     word-wrap: break-word;
+}
+.short__container{
+    color:#88304E;
+    font-size: 20px;
 }

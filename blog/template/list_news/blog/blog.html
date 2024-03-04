@@ -1,9 +1,12 @@
+
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href={% static 'styles/blog_page/style.css' %}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anta&family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
@@ -15,8 +18,8 @@
             <div class="container__heder">
                 <div class="left__navbar">
                     <div class="list__item">
-                        <a class="item" href="./list_news.html">News</a>
-                        <a class="item" href="./list_news.html">Blogs</a>
+                        <a class="item" href="{% url 'list_blog' %}">News</a>
+                        <a class="item" href="{% url 'list_blog' %}">Blogs</a>
                     </div>
                 </div>
                 <div class="right__navbar">
@@ -34,18 +37,28 @@
                 <div class="content">
                     <a href="">
                         <div class="title">
-                            <h2>Title News</h2>
+                            <h2>{{ post.title }}</h2>
                         </div>
                         <div class="container__img">
-                            <img class="filter__img" src="./gerry-rafferty-gettyimages-74291390.jpg" alt="">
+                            <img class="filter__img" src="{{ post.preview.url }}" alt="">
                         </div>
                     </a>
-                    <div class="body__container">
-                        Long description
+                    <div class="short__container">
+                        {{ post.blog }}
                     </div>
+                    {% for subsection in subsections %}
                     <div class="container__img">
-                        <img class="filter__img" src="./gerry-rafferty-gettyimages-74291390.jpg" alt="">
+                        <img class="filter__img" src="{{ subsection.image.url }}" alt="">
                     </div>
+                    <div class="subsection">
+                        <div class="title">
+                            <h3>{{ subsection.title }}</h3>
+                        </div>
+                        <div class="short__container">
+                            {{subsection.content}}
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

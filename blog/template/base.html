@@ -12,24 +12,10 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <div class="wrapper__header">
-            <div class="container__heder">
-                <div class="left__navbar">
-                    <div class="list__item">
-                        <a class="item" href={% url 'list_blog' %}>News</a>
-                        <a class="item" href={% url 'list_blog' %}>Blogs</a>
-                    </div>
-                </div>
-                <div class="right__navbar">
-                    <div class="list__item">
-                        <a class="item" href="./login/login.html">Login</a>
-                        <a class="item" href="./SingUP/singup.html">SingUp</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    %{% block header %}
+    
+    
+    {% endblock header %}%
     <main>
         {% for post in posts %}
         <div class="wrapper__main">

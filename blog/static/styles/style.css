@@ -112,6 +112,7 @@ main{
     padding-top: 10px;
     overflow: hidden;
     word-wrap: break-word;
+    font-size: 30px;
 }
 .short__blog{
     font-size: 24px;
