@@ -1,15 +1,16 @@
 import string
 from django.shortcuts import render, get_object_or_404
-from django.utils.text import slugify
-from .models import Blog_News,Subsection
-import unidecode
-from django.http import HttpResponseNotFound
+from .models import Blog_News
+from django.core.paginator  import Paginator
 
 def view_news(request):
     posts=Blog_News.objects.all()
-    
+    paginator=Paginator(posts,1)
+    page_number = request.GET.get('page', 1)
+    page=paginator.get_page(page_number)
     return render(request,'list_news/list_news.html',
-                  {"posts":posts})
+                  {"posts":posts,
+                   "page":page})
 
 
 def post_detail(request, iid, slug):

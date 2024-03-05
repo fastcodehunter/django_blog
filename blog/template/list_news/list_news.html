@@ -1,57 +1,74 @@
-
 {% extends "base.html" %}
 {% load static %}
 
-    {% block header %}
-    <header>
-        <div class="wrapper__header">
-            <div class="container__heder">
-                <div class="left__navbar">
-                    <div class="list__item">
-                        <a class="item" href="{% url 'list_blog' %}">News</a>
-                        <a class="item" href="{% url 'list_blog' %}">Blogs</a>
-                    </div>
+{% block header %}
+<header>
+    <div class="wrapper__header">
+        <div class="container__heder">
+            <div class="left__navbar">
+                <div class="list__item">
+                    <a class="item" href="{% url 'list_blog' %}">News</a>
+                    <a class="item" href="{% url 'list_blog' %}">Blogs</a>
                 </div>
-                <div class="right__navbar">
-                    <div class="list__item">
-                        <a class="item" href="./login/login.html">Login</a>
-                        <a class="item" href="./SingUP/singup.html">SingUp</a>
-                    </div>
+            </div>
+            <div class="right__navbar">
+                <div class="list__item">
+                    <a class="item" href="./login/login.html">Login</a>
+                    <a class="item" href="./SingUP/singup.html">SingUp</a>
                 </div>
             </div>
         </div>
-    </header>
-    {% endblock header %}
-    {% block content %}
-    <main>
-        {% for post in posts %}
-        <div class="wrapper__main">
-            <div class="container__main">
-                <div class="content">
-                    <a href="{% url 'post_detail' post.id post.slug %}">
-                        <div class="title">
-                            <h2>{{ post.title }}</h2>
-                        </div>
-                        <div class="container__img">
-                            <img class="filter__img" src="{{post.preview.url}}" alt="Картинка">
-                        </div>
-                    </a>
-                    <div class="body__container">
-                        <div class="short__blog">{{post.blog|truncatechars:300}}</div>
-                        <div class="info__blog">
-                            {{ post.author }} | {{ post.publish }}
-                        </div>
-                        
+    </div>
+</header>
+{% endblock header %}
+{% block content %}
+<main>
+    {% for post in page %}
+    <div class="wrapper__main">
+        <div class="container__main">
+            <div class="content">
+                <a href="{% url 'post_detail' post.id post.slug %}">
+                    <div class="title">
+                        <h2>{{ post.title }}</h2>
                     </div>
+                    <div class="container__img">
+                        <img class="filter__img" src="{{post.preview.url}}" alt="Картинка">
+                    </div>
+                </a>
+                <div class="body__container">
+                    <div class="short__blog">{{post.blog|truncatechars:300}}</div>
+                    <div class="info__blog">
+                        {{ post.author }} | {{ post.publish }}
+                    </div>
+
                 </div>
             </div>
         </div>
-        {% empty %}
-        <div class="title_no_news">
-            There is no news.
-        </div>
-        {% endfor %}
-    </main>
-    {% endblock content %}
+    </div>
+    {% empty %}
+    <div class="title_no_news">
+        There is no news.
+    </div>
+    {% endfor %}
+</main>
+{% endblock content %}
+<div class="pagination">
+    {% if page.has_previous %}
+        <a href="?page={{ page.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    {% for num in page.paginator.page_range %}
+        {% if page.number == num %}
+            <span class="current-page">{{ num }}</span>
+        {% else %}
+            <a href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page.has_next %}
+        <a href="?page={{ page.next_page_number }}">Next</a>
+    {% endif %}
+</div>
 </body>
+
 </html>
