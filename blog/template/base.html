@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -6,41 +7,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href={% static 'styles/style.css' %}>
+    <link rel="stylesheet" href={% static 'styles/blog_page/style.css' %}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anta&family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    %{% block header %}
-    
-    
-    {% endblock header %}%
-    <main>
-        {% for post in posts %}
-        <div class="wrapper__main">
-            <div class="container__main">
-                <div class="content">
-                    <a href="{% url 'post_detail' post.id post.slug %}">
-                        <div class="title">
-                            <h2>{{ post.title }}</h2>
-                        </div>
-                        <div class="container__img">
-                            <img class="filter__img" src="{{post.preview.url}}" alt="Картинка">
-                        </div>
-                    </a>
-                    <div class="body__container">
-                        <div class="short__blog">{{post.blog|truncatechars:300}}</div>
-                        {{ post.author }} | {{ post.publish }}
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% empty %}
-        <div class="title_no_news">
-            There is no news.
-        </div>
-        {% endfor %}
-    </main>
+    {% block header %}{% endblock header %}
+    {% block content %}{% endblock content %}
+
 </body>
 </html>
