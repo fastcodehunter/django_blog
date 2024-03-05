@@ -129,3 +129,15 @@ main{
     font-size: 15px;
 
 }
+.pagination{
+    max-width: 960px;
+    margin: 0 auto;
+}
+.chang{
+    padding-inline: 10px;
+    font-size: 25px;
+}
+.current-page{
+    font-size: 25px;
+    padding-inline: 10px;
+}

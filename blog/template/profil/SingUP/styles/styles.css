@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Anta", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(-100deg, #E23E57, #88304E, #522546, #311D3F);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+a {
+    color: #88304E;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+a:hover {
+    color: #E23E57;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    background-color: #311D3F;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper__header {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.container__heder {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.item {
+    padding-inline: 10px;
+
+}
+.title__main{
+  width: 100%;
+}
+
+main {
+    
+    max-width: 960px;
+    margin: 50px auto;
+    height: auto;
+    background-color: #311D3F;
+
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px 5px #121418;
+    padding-bottom: 30px;
+    
+  }
+  
+  .container__logo {
+    display: flex;
+    align-items: center;
+  
+  }
+  
+  .wrapper {
+    padding: 50px;
+  
+  }
+  
+  
+  
+  
+  
+  form{
+    max-width: 660px;
+    padding-top: 40px;
+  }
+  .wrapper__form{
+    margin-bottom: 20px;
+  }
+  .name__form {
+    padding-top: 40px;
+    font-size: 30px;
+    color: #EEEEEE;
+  
+  }
+  .name__input{
+    font-size: 20px;
+    color: #EEEEEE;
+    padding-bottom: 10px;
+  
+  
+  }
+  
+  .input__form{
+    width:100% ;
+    padding: 10px;
+    border: none;
+    background-color: #121418;
+    color: #EEEEEE;
+    border-radius: 5px;
+  }
+  
+  
+  .container__btns{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .btn{
+    
+    color: #ffffff;
+    margin-top: 20px;
+    border: none;
+    background-color: EEEEEE;
+    padding:10px 20px;
+    border-radius: 10px;
+  }
+  .btn:active{
+    box-shadow: inset 1px 1px 1px 1px black;
+  
+  }
+  .additional__links{
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 50px;
+    
+  }
+  .links{
+    color: #EEEEEE;
+  }
+.agree__rules{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Blog_News, Subsection
+from .models import News, Subsection
 
 
 class SubsectionInline(admin.StackedInline):
@@ -7,7 +7,7 @@ class SubsectionInline(admin.StackedInline):
     extra = 1
 
 
-@admin.register(Blog_News)
+@admin.register(News)
 class Blog_NewsAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'publish')
     list_filter = ('author', 'publish')

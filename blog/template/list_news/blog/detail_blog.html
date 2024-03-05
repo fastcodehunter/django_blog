@@ -40,6 +40,7 @@
                         {{ post.blog }}
                     </div>
                     {% for subsection in subsections %}
+                    {% if  subsection.image %}
                     <div class="container__img">
                         <img class="filter__img" src="{{ subsection.image.url }}" alt="">
                     </div>
@@ -50,7 +51,9 @@
                         <div class="short__container">
                             {{subsection.content}}
                         </div>
+
                     </div>
+                    {% endif %}
                     {% endfor %}
                 </div>
             </div>

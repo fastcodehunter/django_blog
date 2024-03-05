@@ -16,22 +16,25 @@
 <body>
     {% block header %}{% endblock header %}
     {% block content %}{% endblock content %}
+    {% if page.number >= 0 %}
     <div class="pagination">
         {% if page.has_previous %}
-            <a href="?page={{ page.previous_page_number }}">Previous</a>
+            <a class="chang" href="?page={{ page.previous_page_number }}">Previous</a>
         {% endif %}
     
         {% for num in page.paginator.page_range %}
             {% if page.number == num %}
-                <span class="current-page">{{ num }}</span>
+                <span  class="current-page">{{ num }}</span>
             {% else %}
-                <a href="?page={{ num }}">{{ num }}</a>
+                <a  class="chang" href="?page={{ num }}">{{ num }}</a>
             {% endif %}
         {% endfor %}
     
         {% if page.has_next %}
-            <a href="?page={{ page.next_page_number }}">Next</a>
+            <a class="chang" href="?page={{ page.next_page_number }}">Next</a>
         {% endif %}
     </div>
+    {% endif %}
+    
 </body>
 </html>

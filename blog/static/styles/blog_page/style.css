@@ -118,3 +118,9 @@ main{
     color:#88304E;
     font-size: 20px;
 }
+.pagination{
+    max-width: 960px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
