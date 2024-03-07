@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import News, Subsection
+from django.contrib.auth.admin import UserAdmin
 
 
 class SubsectionInline(admin.StackedInline):
@@ -17,3 +18,12 @@ class Blog_NewsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Subsection)
+
+
+
+
+
+
+
+
+

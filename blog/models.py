@@ -39,3 +39,6 @@ class Subsection(models.Model):
     title = models.CharField(max_length=100,blank=True)
     content = models.TextField()
     image = models.ImageField(upload_to=user_directory_path, null=True, blank=True)
+    
+    
+    

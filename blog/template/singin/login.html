@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href={% static "styles/signup/styles.css" %}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anta&family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
@@ -13,18 +14,18 @@
     <header>
         <div class="wrapper__header">
             <div class="container__heder">
-                <div class="left__navbar">
-                    <div class="list__item">
-                        <a class="item" href="">News</a>
-                        <a class="item" href="">Blogs</a>
-                    </div>
+              <div class="left__navbar">
+                <div class="list__item">
+                    <a class="item" href="{% url 'list_blog' %}">News</a>
+                    <a class="item" href="{% url 'list_blog' %}">Blogs</a>
                 </div>
-                <div class="right__navbar">
-                    <div class="list__item">
-                        <a class="item" href="">Login</a>
-                        <a class="item" href="">SingUp</a>
-                    </div>
+            </div>
+            <div class="right__navbar">
+                <div class="list__item">
+                  <a class="item" href="{% url 'Sing In' %}">Sing In</a>
+                  <a class="item" href="{% url 'Sing Up' %}">Sing Up</a>
                 </div>
+            </div>
             </div>
         </div>
     </header>
@@ -33,41 +34,34 @@
           <div class="title__main">
             <div class="container__logo">
             <div class="name__form">
-              Sign Up
+              SingIn
             </div>
-            <form action>
-          </div>
-          <div class="wrapper__form">
-            <div class="name__input">Name</div>
-            <div class="inpit__form">
-              <input class="input__form" type="email" >
-            </div>
-    
+            <form method="POST" action="">
+              {% csrf_token %}
           </div>
           <div class="wrapper__form">
             <div class="name__input">Your email</div>
             <div class="inpit__form">
-              <input class="input__form" type="email" >
+              {{form.username}}
             </div>
     
           </div>
           <div class="wrapper__form">
             <div class="name__input">Your Password</div>
             <div class="inpit__form">
-              <input class="input__form" type="password" >
-              <div>
-                At least 6 characters <br>
-                Contains numbers<br>
-                Contains uppercase and lowercase characters
-              </div>
+              {{form.password}}
+    
               <div class="container__btns">
-                <button class="btn"> <a href="">Create an account</a>
+                <button type="submit" class="btn">SingIn</button>
               </div>
             
             </div>
           </div>
         </div>
-
+        <div class="additional__links">
+          <a class="links" href="">Forgot password?</a>
+          <a class="item" href="{% url 'Sing Up' %}">Sing Up</a>
+        </div>
         </form>
         </div>
         </div>

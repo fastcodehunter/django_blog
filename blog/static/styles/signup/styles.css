@@ -19,15 +19,15 @@ body {
 
 @keyframes gradient {
   0% {
-    background-position: 0 50%;
+      background-position: 0 50%;
   }
 
   50% {
-    background-position: 100% 50%;
+      background-position: 100% 50%;
   }
 
   100% {
-    background-position: 0 50%;
+      background-position: 0 50%;
   }
 }
 
@@ -56,15 +56,13 @@ header {
   margin: 0 auto;
 }
 
-.container__heder {
-
+.container__header {
   display: flex;
   justify-content: space-between;
 }
 
 .item {
   padding-inline: 10px;
-
 }
 
 .title__main {
@@ -72,7 +70,6 @@ header {
 }
 
 main {
-
   max-width: 960px;
   margin: 50px auto;
   height: auto;
@@ -80,32 +77,78 @@ main {
   border-radius: 10px;
   box-shadow: 1px 1px 20px 5px #121418;
   padding-bottom: 30px;
+}
+
+.container__logo {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper {
+  padding: 50px;
+}
+
+form {
+  max-width: 660px;
+  padding-top: 40px;
+}
+
+.wrapper__form {
+  margin-bottom: 20px;
+}
+
+.name__form {
+  padding-top: 40px;
+  font-size: 30px;
+  color: #EEEEEE;
+}
+
+.name__input {
+  font-size: 20px;
+  color: #EEEEEE;
+  padding-bottom: 10px;
+}
+
+.input__form {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #121418;
+  color: #EEEEEE;
+  border-radius: 5px;
+}
+
+.container__btns {
+  padding-top: 20px;
   display: flex;
   justify-content: center;
+}
 
-}
-.title{
-  padding-top: 20px;
-  text-align: center;
-  font-size: 38px;
-  color: #E23E57;
-}
-input{
-  margin-top: 50px;
-  width: 100%;
-  background-color: #311D3F;
-  border: none;
-  box-shadow: 1px 1px 20px 5px #121418;
-  padding: 10px;
-  font-size: 38px;
-  text-align: center;
-}
 .btn {
-  width: 100%;
   color: #ffffff;
   margin-top: 20px;
   border: none;
-  background-color: EEEEEE;
+  background-color: #EEEEEE;
   padding: 10px 20px;
   border-radius: 10px;
+}
+
+.btn:active {
+  box-shadow: inset 1px 1px 1px 1px black;
+}
+
+.additional__links {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 50px;
+}
+
+.links {
+  color: #EEEEEE;
+}
+
+.agree__rules {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
