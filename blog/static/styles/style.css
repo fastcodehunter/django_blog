@@ -45,7 +45,7 @@ a:hover {
 header {
     width: 100%;
     height: 100px;
-    background-color: #311D3F;
+    background-color: #00ff0d;
     display: flex;
     align-items: center;
 }
@@ -57,13 +57,13 @@ header {
 }
 
 .container__heder {
-
     display: flex;
     justify-content: space-between;
 }
 
 .item {
     padding-inline: 10px;
+    font-size: 30px;
 
 }
 main{
@@ -140,4 +140,13 @@ main{
 .current-page{
     font-size: 25px;
     padding-inline: 10px;
+}
+
+.message__error{
+    color: #E23E57;
+  }
+
+
+.name__author{
+    color: #E23E57;
 }

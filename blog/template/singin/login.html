@@ -1,71 +1,80 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href={% static "styles/signup/styles.css" %}>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'styles/singin/styles.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anta&family=Comfortaa:wght@300..700&display=swap"
+    rel="stylesheet">
+  <title>Document</title>
 </head>
+
 <body>
-    <header>
-        <div class="wrapper__header">
-            <div class="container__heder">
-              <div class="left__navbar">
-                <div class="list__item">
-                    <a class="item" href="{% url 'list_blog' %}">News</a>
-                    <a class="item" href="{% url 'list_blog' %}">Blogs</a>
-                </div>
-            </div>
-            <div class="right__navbar">
-                <div class="list__item">
-                  <a class="item" href="{% url 'Sing In' %}">Sing In</a>
-                  <a class="item" href="{% url 'Sing Up' %}">Sing Up</a>
-                </div>
-            </div>
-            </div>
-        </div>
-    </header>
-    <main>
-        <div class="wrapper">
-          <div class="title__main">
-            <div class="container__logo">
-            <div class="name__form">
-              SingIn
-            </div>
-            <form method="POST" action="">
-              {% csrf_token %}
+  <header>
+    <div class="wrapper__header">
+      <div class="container__header">
+        <div class="left__navbar">
+          <div class="list__item">
+            <a class="item" href="{% url 'list_blog' %}">News</a>
+            <a class="item" href="{% url 'list_blog' %}">Blogs</a>
           </div>
+        </div>
+        <div class="right__navbar">
+          <div class="list__item">
+            <a class="item" href="{% url 'Sing In' %}">Sign In</a>
+            <a class="item" href="{% url 'Sing Up' %}">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="wrapper">
+      <div class="title__main">
+        <div class="container__logo">
+          <div class="name__form">
+            Sign In
+          </div>
+        </div>
+        <form method="POST" action="">
+          {% csrf_token %}
+
           <div class="wrapper__form">
-            <div class="name__input">Your email</div>
-            <div class="inpit__form">
-              {{form.username}}
-            </div>
-    
+            <div class="name__input">Your email or You Login</div>
+            {{ form.email }}
           </div>
-          <div class="wrapper__form">
-            <div class="name__input">Your Password</div>
-            <div class="inpit__form">
-              {{form.password}}
-    
-              <div class="container__btns">
-                <button type="submit" class="btn">SingIn</button>
-              </div>
-            
-            </div>
-          </div>
+      </div>
+      <div class="wrapper__form">
+        <div class="name__input">Your Password</div>
+        {{ form.password }}
+
+        <div class="message__error">
+          {% if messages %}
+          {% for message in messages %}
+          <div class="error">{{ message }}</div>
+          {% endfor %}
+          {% endif %}
         </div>
-        <div class="additional__links">
-          <a class="links" href="">Forgot password?</a>
-          <a class="item" href="{% url 'Sing Up' %}">Sing Up</a>
+
+        <div class="container__btns">
+          <button class="btn" type="submit">
+            <div class="text_btn">Sign Up</div>
+          </button>
         </div>
-        </form>
-        </div>
-        </div>
-    
-      </main>
+      </div>
+    </div>
+    </form>
+    </div>
+    <div class="additional__links">
+      <a class="item" href>Forgot password?</a>
+      <a class="item" href="{% url 'Sing Up' %}">Sign Up</a>
+    </div>
+    </div>
+  </main>
 </body>
+
 </html>

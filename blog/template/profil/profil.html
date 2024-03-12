@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "styles/profil/styles.css" %}>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Comfortaa:wght@300..700&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="wrapper__header">
+            <div class="container__heder">
+                <div class="left__navbar">
+                    <div class="list__item">
+                        <a class="item" href="{% url 'list_blog' %}">News</a>
+                        <a class="item" href="{% url 'list_blog' %}">Blogs</a>
+                    </div>
+                </div>
+                <div class="right__navbar">
+                    <div class="list__item">
+                        {% if user.is_authenticated %}
+                        <div class="profil__active">
+                            <div class="name__author"> <a class="item" href="{% url 'profil' user.id user.username %}">{{ user.username }} </a></div>
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button class="btn__logout" type="submit"> <div class="text__btn">Logout</div></button>
+                            </form>
+                        </div>
+    
+                        {% else %}
+                        <a class="item" href="{% url 'Sing In' %}">Sign In</a>
+                        <a class="item" href="{% url 'Sing Up' %}">Sign Up</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper__main">
+            <div class="container__main">
+                <div class="header__main__img">
+                    <div class="block__img">
+                        <img class="img__cover" src="/media/fon.jpeg" alt="">
+                    </div>
+                    <div class="header__img__author">
+                        <img class="img__author" src="/media/ava.png" alt="">
+                    </div>
+                </div>
+                <div class="body__main">
+                    <div class="wrapper__body">
+                        <div class="container__body">
+                            <div class="container__name__author">
+                                <div class="name__author">{{ user.username }} </div>
+                                <div class="date_registr">{{user.date_joined}}</div>
+                            </div>
+                            <div class="teaxtarea_about">
+                                <div>About me</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="btn__post">
+            <button type="submit" class="btn">New post</button>
+        </div>
+    </main>
+    <div class="list__post">
+        <a class="post" href="">
+            <div class="containers__posts">
+                <div class="wrapper__containers__posts">
+                    <div class="title">
+                        <h2>Title POSTS</h2>
+                    </div>
+                    <div >
+                        <img class="img__posts" src="./7bb917bfcfe0f81c150168ee473f5a99.jpeg" alt="">
+                    </div>
+                    <div>
+                        Short 
+                        description
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</body>
+
+</html>
