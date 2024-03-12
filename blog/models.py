@@ -40,7 +40,7 @@ class Subsection(models.Model):
     blog_news = models.ForeignKey(News, on_delete=models.CASCADE, related_name='subsections')
     title = models.CharField(max_length=100,blank=True)
     content = models.TextField()
-    image = models.ImageField(upload_to=user_directory_path, null=True, blank=True)
+    images = models.ImageField(upload_to=user_directory_path, null=True, blank=True)
     
     
     
